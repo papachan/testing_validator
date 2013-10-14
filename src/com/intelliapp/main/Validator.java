@@ -13,6 +13,7 @@ public class Validator {
 
         if (plates.length() >= PLATES_MIN && plates.length() < PLATES_MAX) {
             if (plates.matches(ALPHANUMERIC)) {
+                // We divide the string in two parts
                 String pos = plates.substring(0, 3);
                 String last = plates.substring(3);
                 return pos.matches(ONLY_LETTERS) && isInteger(last);
