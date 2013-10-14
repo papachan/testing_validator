@@ -39,7 +39,9 @@ public class PlatesValidatorTest {
     return new Object[][] { { new String[] {
         "123456",
         "WW2345",
-        "W23456"
+        "W23456",
+        "111222",
+        "232XXX"
     } } };
   }
 
