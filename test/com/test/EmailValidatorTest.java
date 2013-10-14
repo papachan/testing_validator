@@ -19,13 +19,21 @@ public class EmailValidatorTest {
 
 	@DataProvider
 	public Object[][] ValidEmailProvider() {
-		return new Object[][] { { new String[] { "john@yahoo.com",
-			"x@gmail.com", "ten.10@hotmail.com" } } };
+		return new Object[][] { { new String[] {
+				"john@yahoo.com",
+				"x@gmail.com",
+				"ten.10@hotmail.com",
+				"c@c.com"
+		} } };
 	}
 
 	@DataProvider
 	public Object[][] InvalidEmailProvider() {
-		return new Object[][] { { new String[] { "dan", "yu@.com.ar" } } };
+		return new Object[][] { { new String[] {
+				"dan",
+				"yu@.com.ar",
+				"mail.com"
+		} } };
 	}
 
 	@Test(dataProvider = "ValidEmailProvider")
@@ -44,7 +52,7 @@ public class EmailValidatorTest {
 
 		for (String temp : Email) {
 			boolean valid = emailValidator.validate(temp);
-			System.out.println("Email is valid : " + temp + " , " + valid);
+			System.out.println("Email is invalid : " + temp + " , " + valid);
 			Assert.assertEquals(valid, false);
 		}
 	}
