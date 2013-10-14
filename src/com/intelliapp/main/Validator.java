@@ -4,14 +4,13 @@ package com.intelliapp.main;
 public class Validator {
 
     private static final int PLATES_MIN = 6;
-    private static final int PLATES_MAX = 7;
 
     public static final String ALPHANUMERIC = "^[a-zA-Z0-9]*$";
     private static final String ONLY_LETTERS = "[a-zA-Z]+";
 
     public static boolean checkCarPlates(final String plates) {
 
-        if (plates.length() >= PLATES_MIN && plates.length() < PLATES_MAX) {
+        if(plates.length() == PLATES_MIN) {
             if (plates.matches(ALPHANUMERIC)) {
                 // We divide the string in two parts
                 String pos = plates.substring(0, 3);
