@@ -9,15 +9,18 @@ import com.intelliapp.main.PhoneNumberUtils;
 import com.intelliapp.main.Validator;
 
 public class PhoneValidatorTest {
-	
-	
+
+
 	@DataProvider
 	public Object[][] PhoneNumberProvider() {
 		return new Object[][] { { new String[] {
 				"3106545000",
 				"5714557882",
 				"(+54) 1 17772 8882",
-				
+				"+1 552233466"
+
+
+
 		} } };
 	}
 
@@ -25,15 +28,18 @@ public class PhoneValidatorTest {
 	public Object[][] InvalidPhoneNumberProvider() {
 		return new Object[][] { { new String[] {
 				"123456",
-				"+1"
+				"522.435.1616",
+				"+1",
+				"*611",
+				"test"
 		} } };
 	}
-	
+
 	@BeforeTest
 	public void beforeTest() {
-		
+
 	}
-	
+
     @Test(dataProvider = "PhoneNumberProvider")
     public void ValidCarPhoneNumber(String[] s) {
 		for (String temp : s) {
@@ -42,13 +48,13 @@ public class PhoneValidatorTest {
 			Assert.assertEquals(valid, true);
 		}
     }
-    
+
     @Test(dataProvider = "InvalidPhoneNumberProvider")
     public void InvalidCarPhoneNumber(String[] s) {
 		for (String temp : s) {
 			boolean valid = PhoneNumberUtils.isGlobalPhoneNumber(temp);
 			System.out.println("PhoneNumber is invalid : " + temp + " , " + valid);
-			Assert.assertEquals(valid, true);
+			Assert.assertEquals(valid, false);
 		}
     }
 
